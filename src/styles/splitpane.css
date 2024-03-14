@@ -1,0 +1,120 @@
+
+   .react-split__sash {
+    /* background-color: #000 !important; */
+    position: absolute;
+    top: 0;
+    transition: inherit 0.1s !important;
+    z-index: 2;
+  }
+  
+  .react-split__sash-content--active {
+    /* background-color: #000 !important; */
+    
+  }
+  .split-sash-content {
+    width: 100%;
+    height: 100%;
+}
+  .split-sash-content.split-sash-content-vscode.split-sash-content-active {
+    background-color: inherit !important;
+  }  
+
+  .react-split {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.react-split__pane {
+    height: 100%;
+    position: absolute;
+    white-space: normal;
+    width: 100%;
+    overflow: hidden;
+}
+
+.react-split__sash {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: background-color 0.1s;
+    width: 100%;
+    z-index: 2;
+} 
+
+
+.react-split {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.react-split__pane {
+    height: 100%;
+    position: absolute;
+    white-space: normal;
+    width: 100%;
+    overflow: hidden;
+}
+
+.react-split__sash {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: background-color 0.1s;
+    width: 100%;
+    z-index: 2;
+}
+
+.react-split__sash--disabled {
+    pointer-events: none;
+}
+
+.react-split__sash--vertical {
+    cursor: col-resize;
+    border-right-width: 1px !important;
+    border-right-style: solid !important;
+}
+
+.react-split__sash--horizontal {
+    cursor: row-resize;
+    height: 2% !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+}
+
+.react-split__sash-content {
+    width: 100%;
+    height: 100%;
+}
+
+.react-split__sash-content--active {
+    background-color: #175ede;
+}
+
+.react-split--dragging.react-split--vertical {
+    cursor: col-resize;
+}
+
+.react-split--dragging.react-split--horizontal {
+    cursor: row-resize;
+}
+
+body.react-split--disabled {
+    user-select: none;
+}
+
+.split-sash-content {
+    width: 100%;
+    height: 100%;
+}
+
+.split-sash-content-vscode.split-sash-content-active {
+    background-color: #175ede;
+}
+
+.split-sash-content-sublime {
+    /* Styles for Sublime content */
+}

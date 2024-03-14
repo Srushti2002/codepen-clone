@@ -1,0 +1,158 @@
+.projectWrapper{ 
+    height: 100vh; /* Ensure the wrapper takes up the full viewport height */
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    overflow: hidden;
+
+}
+.projectHeaderLight{
+    background-color: #a6a5a5;
+    background-color: #a6a5a5;
+    padding:10px 10px 10px 20px; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+}
+.projectHeaderDark{
+    background-color: #060606;
+    padding:10px 10px 10px 20px; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+}
+button{
+    background-color: inherit;
+    border: none;
+}
+.sun {
+    color:rgb(255, 191, 0);
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px 15px 5px;
+    box-shadow: 2px 2px 5px 2px rgba(83, 82, 82, 0.5);
+}
+
+.moon {
+    color:rgb(255, 187, 0);
+    background-color: #000;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px 15px 5px;
+    box-shadow: 1px 1px 5px 2px rgba(63, 62, 62, 0.5);
+}
+
+img {
+    height:30px;
+    width:150px;
+}
+.projectBody{
+    flex: 1; /* Occupy remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.projectContent{
+}
+.projectCode{
+    height: 100%;
+    /* border-top: #2c2b2b 1px solid; */
+    /* border-left: #060606 15px solid; */
+}
+
+.codeHtmlDark, .codeCssDark, .codeJsDark{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #060606;
+    border-right: #060606 15px solid;
+}
+.codeHtmlLight, .codeCssLight, .codeJsLight{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #c1c1c1;
+    border-right: #c1c1c1 15px solid; 
+}
+
+.htmlTitleDark, .cssTitleDark, .jsTitleDark {
+    background-color: #1A1B26;
+    /* padding-left: 10px; */
+    min-height: 30px;
+    border-top: #2d2f42 3.7px solid;
+    border-left: #2c2b2b 1px solid;
+    /* border-left: #8b8989 1px solid; */
+    max-width: 90px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    color:#c0c0c6;
+}
+
+.htmlTitleLight, .cssTitleLight, .jsTitleLight {
+    background-color: #E1E2E7;
+    /* padding-left: 10px; */
+    min-height: 30px;
+    border-left: #a5a5a5 1px solid;
+    border-top: #c1c1c1 3.7px solid;
+    max-width: 90px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    color: black;
+}
+
+.htmlIcon{
+    color: #B6363A;
+    font-size: 21px;
+}
+.cssIcon{
+    color: #13A5DB;
+    font-size: 18px;
+}
+.jsIcon{
+    color:#FCD000;
+    font-size: 21px;
+}
+
+.htmlTitleText, .cssTitleText, .jsTitleText {
+    /* color: aliceblue; */
+}
+
+.htmlActCodeDark, .cssActCodeDark, .jsActCodeDark {
+    flex: 1;
+    border-left: #2c2b2b 1px solid;
+    border-right: #2c2b2b 1px solid;
+}
+.htmlActCodeLight, .cssActCodeLight, .jsActCodeLight {
+    flex: 1;
+    border-left: #a5a5a5 1px solid;
+    border-right: #a5a5a5 1px solid;
+}
+
+.codeMirrorHtml, .codeMirrorCss, .codeMirrorJs {
+    
+    
+}
+
+
+.outputScreen{
+    height:100%;
+    background-color: #0a0a0a;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.outputIframeScreen {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+

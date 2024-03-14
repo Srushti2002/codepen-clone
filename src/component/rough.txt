@@ -1,0 +1,113 @@
+<SplitPane
+                split="horizontal"
+                sizes={sizes}
+                onChange={setSizes}
+                className={styles.projectContent}
+            >    
+             {/* {code section} */}
+                <SplitPane className={styles.projectCode} sizes={sizes1} onChange={setSizes1} >
+                    {/* {HTML code} */}
+                    <div className={styles.codeHtml}>
+                        <div className={styles.htmlTitle}>
+                            <FaHtml5 className={styles.htmlIcon}/>
+                            <div className={styles.htmlTitleText}>HTML</div>
+                        </div>
+                        <div className={styles.htmlActCode}>
+                            <CodeMirror 
+                            className={styles.codeMirrorHtml}
+                            value={html} 
+                            height="100vh"
+                            theme={tokyoNight} 
+                            extensions={[javascript({ jsx: true })]} 
+                            onChange={(value, viewUpdate)=>{setHtml(value)}} />
+                        </div>
+                    </div>
+                    <SplitPane  className={styles.projectCodeCssJs} sizes={sizes2} onChange={setSizes2}>
+                        {/* {CSS code} */}
+                        <div className={styles.codeCss}>
+                            <div className={styles.cssTitle}>
+                                <FaCss3 className={styles.cssIcon} />   
+                                <div className={styles.cssTitleText}>CSS</div>
+                                
+                            </div>
+                            <div className={styles.cssActCode}>
+                                <CodeMirror 
+                                className={styles.codeMirrorCss}
+                                value={css}
+                                height="100vh"
+                                extensions={[javascript({ jsx: true })]}
+                                theme={tokyoNight} 
+                                onChange={(value, viewUpdate)=>{setCss(value)}}
+                                />
+                            </div>
+                        </div>
+                        {/* {JS code} */}
+                        <div className={styles.codeJs}>
+                            <div className={styles.jsTitle}>
+                                <FaJs className={styles.jsIcon} />
+                                <div className={styles.jsTitleText}>JS</div> 
+                                      
+                            </div>
+                            <div className={styles.jsActCode}>
+                                <CodeMirror 
+                                className={styles.codeMirrorJs}
+                                value={js}
+                                height="100vh"
+                                theme={tokyoNight} 
+                                extensions={[javascript({ jsx: true })]}
+                                onChange={(value, viewUpdate)=>{setJs(value)}}
+                                />
+                            </div>
+                        </div> 
+                    </SplitPane>
+                    
+                </SplitPane>
+                    {/* {output section} */}
+                    <div  className={styles.outputScreen}>
+                        
+                        <iframe 
+                        className={styles.outputIframeScreen}
+                        title="Result"
+                        srcDoc={output}
+                        style={{border:"none"}} 
+                        />   
+                         
+                    </div>
+            </SplitPane>
+
+
+            
+
+// {<DarkTheme /> ? console.log("light") : console.log("dark")}
+// {isDarkMode ? console.log("light") : console.log("dark")}
+
+// import React, { Suspense } from 'react';
+
+// const ThemeSelector = ({ children, isDarkMode }) => {
+//     const LightTheme = React.lazy(() => import('./lighttheme'));
+//     const DarkTheme = React.lazy(() => import('./darktheme'));
+
+//     const TYPE_OF_THEME = {
+//         DEFAULT: 'default',
+//         LIGHT_MODE: 'light',
+//         DARK_MODE: 'dark'
+//     };
+
+//     const CHOSEN_THEME = localStorage.getItem('TYPE_OF_THEME') || TYPE_OF_THEME.DEFAULT;
+
+//     return (
+//         <>
+//             <Suspense fallback={<></>}>
+//                 {(CHOSEN_THEME === TYPE_OF_THEME.LIGHT_MODE && !isDarkMode) && (
+//                     <LightTheme />
+//                 )}
+//                 {(CHOSEN_THEME === TYPE_OF_THEME.DARK_MODE && isDarkMode) && (
+//                     <DarkTheme />
+//                 )}
+//             </Suspense>
+//             {children}
+//         </>
+//     );
+// };
+
+// export default ThemeSelector;
