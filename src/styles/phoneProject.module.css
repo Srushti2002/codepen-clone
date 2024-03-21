@@ -36,7 +36,7 @@
     column-gap: 5px;
     color:black;
     background-color: #E1E2E7;
-    padding: 10px 0px 10px 0px;
+    padding: 5px 0px 5px 0px;
     align-items: center;
     justify-content: center;
     width:75px;
@@ -51,7 +51,7 @@
     column-gap: 5px;
     color:white;
     background-color: #1A1B26;
-    padding: 10px 0px 10px 0px;
+    padding: 5px 0px 5px 0px;
     align-items: center;
     justify-content: center;
     width:75px;
@@ -75,7 +75,6 @@
 
 .codeContainerLight {
     height: 100%;
-
 }
 
 .codeContainerDark {
@@ -90,11 +89,15 @@
     height:100%;
     background-color: #0a0a0a;
     overflow: scroll;
-    z-index: 1;
 }
 
 .phProjectOutputIframe {
-    overflow:scroll;
+    overflow: scroll;
     height: 100%;
+    width: 100%;
+    border: none;
+}
+.divider{
+    height: 10px;
     width: 100%;
 }

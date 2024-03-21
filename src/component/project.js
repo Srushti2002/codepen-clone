@@ -92,7 +92,7 @@ export default function Project({ isDarkMode, toggleTheme }) {
         <div className= {isDarkMode ? styles.projectHeaderLight : styles.projectHeaderDark}>
             <img src={isDarkMode ? img2 : img } />
             <button onClick={toggleTheme}>
-            {isDarkMode ? <FaSun className={styles.sun} />: <FaMoon className={styles.moon} /> }
+            {isDarkMode ?  <FaMoon className={styles.moon} /> : <FaSun className={styles.sun} /> }
                 </button>
         </div>
         

@@ -69,7 +69,7 @@ export default function PhoneProject({ isDarkMode, toggleTheme }) {
                 <CodeMirror 
                     className={styles.codeMirror}
                     value={value} 
-                    height="280px"
+                    height="250px"
                     theme={isDarkMode ? tokyoNightDay : tokyoNight } 
                     options={{mode}}
                     extensions={[javascript({ jsx: true })]} 
@@ -77,15 +77,16 @@ export default function PhoneProject({ isDarkMode, toggleTheme }) {
                        
                 </div>
             </div>
+            <div className={styles.divider}
+            style={{ backgroundColor: isDarkMode ? '#fff' : '#111219' }}></div>
             <div className={styles.phProjectOutputBlock}
-            style={{ backgroundColor: isDarkMode ? '#E1E2E7' : '#111219' }}>
+                style={{ backgroundColor: isDarkMode ? '#fff' : '#111219' }}>
                 <iframe
                 className={styles.phProjectOutputIframe}
                 title="Result"
                 srcDoc={output}
                 />
-            </div>
-       
+            </div> 
     </div>
   )
 }

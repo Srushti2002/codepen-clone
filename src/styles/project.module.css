@@ -27,21 +27,21 @@ button{
     border: none;
 }
 .sun {
-    color:rgb(255, 191, 0);
-    background-color: #fff;
-    border-radius: 10px;
-    font-size: 20px;
-    padding: 5px 15px 5px;
-    box-shadow: 2px 2px 5px 2px rgba(83, 82, 82, 0.5);
-}
-
-.moon {
     color:rgb(255, 187, 0);
     background-color: #000;
     font-size: 20px;
     border-radius: 10px;
     padding: 5px 15px 5px;
     box-shadow: 1px 1px 5px 2px rgba(63, 62, 62, 0.5);
+}
+
+.moon {
+    color:rgb(255, 191, 0);
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px 15px 5px;
+    box-shadow: 2px 2px 5px 2px rgba(83, 82, 82, 0.5);
 }
 
 img {
@@ -173,6 +173,7 @@ img {
 .outputIframeScreen {
     overflow: hidden;
     /* pointer-events: none; */
+    border-left:none;
     height: 100%;
     width: 100%;
 }
