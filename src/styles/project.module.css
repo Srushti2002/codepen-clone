@@ -52,39 +52,63 @@ img {
     flex: 1; /* Occupy remaining space */
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .projectContent{
 }
 .projectCode{
-    height: 100%;
+    /* height: 100%; */
     /* border-top: #2c2b2b 1px solid; */
     /* border-left: #060606 15px solid; */
 }
 
 .codeHtmlDark, .codeCssDark, .codeJsDark{
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     background-color: #060606;
     border-right: #060606 15px solid;
+    position: relative;
 }
 .codeHtmlLight, .codeCssLight, .codeJsLight{
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     background-color: #c1c1c1;
     border-right: #c1c1c1 15px solid; 
+    position: relative;
+}
+.htmlTitleBodyDark, .cssTitleBodyDark, .jsTitleBodyDark {
+    background-color: #000;
+    overflow:hidden;
+    display: flex;
+    flex-direction: row;
+    margin-left: 3px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+.htmlTitleBodyLight, .cssTitleBodyLight, .jsTitleBodyLight {
+    background-color: #C1C1C1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    margin-left: 3px;
+    align-items: center;
+    color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 .htmlTitleDark, .cssTitleDark, .jsTitleDark {
     background-color: #1A1B26;
-    /* padding-left: 10px; */
+    padding-left: 10px;
     min-height: 30px;
     border-top: #2d2f42 3.7px solid;
-    border-left: #2c2b2b 1px solid;
-    /* border-left: #8b8989 1px solid; */
-    max-width: 90px;
+    width: 90px;
+    overflow:hidden;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -95,17 +119,15 @@ img {
 
 .htmlTitleLight, .cssTitleLight, .jsTitleLight {
     background-color: #E1E2E7;
-    /* padding-left: 10px; */
     min-height: 30px;
-    border-left: #a5a5a5 1px solid;
+    overflow: hidden;
     border-top: #c1c1c1 3.7px solid;
-    max-width: 90px;
+    width: 90px;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: row;
     column-gap: 10px;
-    color: black;
 }
 
 .htmlIcon{
@@ -141,7 +163,6 @@ img {
     
 }
 
-
 .outputScreen{
     height:100%;
     background-color: #0a0a0a;
@@ -151,8 +172,25 @@ img {
 
 .outputIframeScreen {
     overflow: hidden;
+    /* pointer-events: none; */
     height: 100%;
     width: 100%;
-    pointer-events: none;
 }
 
+.customresizer {
+    cursor: ew-resize; /* Set cursor to horizontal resize */
+  }
+
+  .phoneView{
+    display:none;
+  }
+
+
+@media screen and (max-width: 750px) {
+    .projectBody{
+        display:none;
+    }
+    .phoneView{
+        display: block;
+    }
+}

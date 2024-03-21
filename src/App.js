@@ -5,7 +5,7 @@ import Project from './component/project';
 
 function App() {
 
-  const [ isDarkMode, setIsDarkMode ] = useState(true);
+  const [ isDarkMode, setIsDarkMode ] = useState(false);
   
   const toggleTheme = () => {
     setIsDarkMode((prevState) => !prevState);

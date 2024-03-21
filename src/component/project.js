@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { tokyoNight  } from '@uiw/codemirror-theme-tokyo-night';
 import { tokyoNightDay } from '@uiw/codemirror-theme-tokyo-night-day';
 import styles from '../styles/project.module.css';
@@ -12,7 +12,7 @@ import '../styles/splitpane.css';
 import img2 from '../images/codepenlight.png';
 import useLocalStorage from '../hooks/useLocalStorage'
 import 'split-pane-react/esm/themes/default.css';
-
+import PhoneProject from './phoneProject';
 export default function Project({ isDarkMode, toggleTheme }) {
     const [sizes, setSizes] = useState([100, 100, 'auto']);
     const [sizes1, setSizes1] = useState([50, 100, 'auto']);
@@ -23,6 +23,17 @@ export default function Project({ isDarkMode, toggleTheme }) {
     const [js, setJs] = useLocalStorage("js", "");
     
     const [output, setOutput] = useState("");
+    const [isDragging, setIsDragging] = useState(false);
+
+    const handleDragStarted = () => {
+        console.log('Dragging started');
+        setIsDragging(true);  
+    };
+
+    const handleDragEnd = () => {
+        console.log('Dragging ended');
+        setIsDragging(false);
+    };
 
     useEffect(() => {
         const styleTag = document.createElement('style');
@@ -49,6 +60,7 @@ export default function Project({ isDarkMode, toggleTheme }) {
         };
     }, [isDarkMode]);
 
+    
     useEffect(() => {
         updateOutput();
     },
@@ -73,6 +85,7 @@ export default function Project({ isDarkMode, toggleTheme }) {
        setOutput(combinedOutput) ; 
     }
 
+
   return (
     <div className={styles.projectWrapper}>
         {/* {header section} */}
@@ -85,26 +98,37 @@ export default function Project({ isDarkMode, toggleTheme }) {
         
         {/* {working section} */}
         <div className={styles.projectBody}>
-            
+    
             <SplitPane
                 split="horizontal"
                 sizes={sizes}
-                onChange={setSizes}
-                className={styles.projectContent} 
+                className={styles.projectContent}
+                onChange={(newSizes) => {
+                    setSizes(newSizes);
+                    if (!isDragging) {
+                      handleDragStarted();
+                    }
+                    // Check if dragging has ended
+                    if (isDragging) {
+                      handleDragEnd();
+                    }
+                }}
             >    
              {/* {code section} */}
                 <SplitPane className={styles.projectCode} 
                 style={{ borderLeft : isDarkMode ? " #c1c1c1 15px solid" : " #060606 15px solid" ,
                 borderTop : isDarkMode ? "#8b8989 1px solid" : "#2c2b2b 1px solid" }} 
                 sizes={sizes1} 
-                onChange={setSizes1}
-                 
+                onChange={setSizes1} 
                 >
                     {/* {HTML code} */}
                     <div className={isDarkMode ? styles.codeHtmlLight : styles.codeHtmlDark }>
-                        <div className={isDarkMode ? styles.htmlTitleLight : styles.htmlTitleDark}>
-                            <FaHtml5 className={styles.htmlIcon}/>
-                            <div className={styles.htmlTitleText}>HTML</div>
+                        <div className={isDarkMode ? styles.htmlTitleBodyLight : styles.htmlTitleBodyDark}>
+                            <div className={isDarkMode ? styles.htmlTitleLight : styles.htmlTitleDark}>
+                                <FaHtml5 className={styles.htmlIcon}/>
+                                <div className={styles.htmlTitleText}>HTML</div>
+                            </div>
+
                         </div>
                         <div className={isDarkMode ? styles.htmlActCodeLight : styles.htmlActCodeDark }>
                             <CodeMirror 
@@ -119,10 +143,11 @@ export default function Project({ isDarkMode, toggleTheme }) {
                     <SplitPane  className={styles.projectCodeCssJs} sizes={sizes2} onChange={setSizes2}>
                         {/* {CSS code} */}
                         <div className={isDarkMode ? styles.codeCssLight : styles.codeCssDark }>
-                            <div className={isDarkMode ? styles.cssTitleLight : styles.cssTitleDark }>
-                                <FaCss3 className={styles.cssIcon} />   
-                                <div className={styles.cssTitleText}>CSS</div>
-                                
+                            <div className={isDarkMode ? styles.cssTitleBodyLight : styles.cssTitleBodyDark}>
+                                <div className={isDarkMode ? styles.cssTitleLight : styles.cssTitleDark }>
+                                    <FaCss3 className={styles.cssIcon} />   
+                                    <div className={styles.cssTitleText}>CSS</div>  
+                                </div>
                             </div>
                             <div className={isDarkMode ? styles.cssActCodeLight : styles.cssActCodeDark }>
                                 <CodeMirror 
@@ -137,10 +162,11 @@ export default function Project({ isDarkMode, toggleTheme }) {
                         </div>
                         {/* {JS code} */}
                         <div className={isDarkMode ? styles.codeJsLight : styles.codeJsDark }>
-                            <div className={isDarkMode ? styles.jsTitleLight : styles.jsTitleDark }>
-                                <FaJs className={styles.jsIcon} />
-                                <div className={styles.jsTitleText}>JS</div> 
-                                      
+                            <div className={isDarkMode ? styles.jsTitleBodyLight : styles.jsTitleBodyDark}>
+                                <div className={isDarkMode ? styles.jsTitleLight : styles.jsTitleDark }>
+                                    <FaJs className={styles.jsIcon} />
+                                    <div className={styles.jsTitleText}>JS</div>        
+                                </div>
                             </div>
                             <div className={isDarkMode ? styles.jsActCodeLight : styles.jsActCodeDark }>
                                 <CodeMirror 
@@ -156,19 +182,36 @@ export default function Project({ isDarkMode, toggleTheme }) {
                     
                 </SplitPane>
                     {/* {output section} */}
-                    <div  className={styles.outputScreen}
+                    
+                    <div  className={styles.outputScreen} id="iframe-container"
                     style={{ backgroundColor: isDarkMode ? '#E1E2E7' : '#111219' }}
                     >
-                        <iframe 
-                        className={styles.outputIframeScreen}
-                        title="Result"
-                        srcDoc={output}
-                        />   
+                        <div
+                        id="overlay"
+                        style={{
+                            position: 'absolute',
+                            
+                            width: '100%',
+                            height: '100px',
+                            background: 'red',
+                            pointerEvents: isDragging ? 'none' : 'auto', // Capture mouse events only when not dragging
+                            opacity:  0 , // Set opacity to 0 when dragging, otherwise 1
+                        }}
+                        />
+                        {isDragging ? console.log("true hee") : console.log("false")}
+                            <iframe 
+                            className={styles.outputIframeScreen}
+                            title="Result"
+                            srcDoc={output}
+                            />   
                          
                     </div>
             </SplitPane>
         </div>
 
+        <div className={styles.phoneView}>
+            <PhoneProject isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+        </div>
 
     </div>
   )

@@ -10,6 +10,7 @@
     "@uiw/codemirror-theme-tokyo-night": "^4.21.24",
     "@uiw/codemirror-theme-tokyo-night-day": "^4.21.24",
     "@uiw/react-codemirror": "^4.21.24",
+    "classnames": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",

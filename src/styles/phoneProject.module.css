@@ -1,0 +1,100 @@
+.phProjectWrapper {
+    height: 100vh; /* Ensure the wrapper takes up the full viewport height */
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    overflow: hidden;
+}
+
+.phProjectCodingBlockLight {
+    background-color: #C1C1C1;
+    display: flex;
+    flex-direction: column;
+}
+
+.phProjectCodingBlockDark {
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.phProjectButtonLight{
+    /* background-color: #E1E2E7; */
+    display: flex;
+    flex-direction: row; 
+    border: #a5a5a5 1px solid;
+}
+
+.phProjectButtonDark {
+    display: flex;
+    flex-direction: row; 
+    border: #2c2b2b 1px solid;
+}
+
+.ButtonLight {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    color:black;
+    background-color: #E1E2E7;
+    padding: 10px 0px 10px 0px;
+    align-items: center;
+    justify-content: center;
+    width:75px;
+    border-left: #a5a5a5 1px solid;
+    border-right: #a5a5a5 1px solid;
+    border-top: #c1c1c1 3.7px solid;
+}
+
+.ButtonDark {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    color:white;
+    background-color: #1A1B26;
+    padding: 10px 0px 10px 0px;
+    align-items: center;
+    justify-content: center;
+    width:75px;
+    border-left: #2c2b2b 1px solid;
+    border-right: #2c2b2b 1px solid;
+    border-top: #2d2f42 3.7px solid;
+}
+
+.htmlIcon{
+    color: #B6363A;
+    font-size: 21px;
+}
+.cssIcon{
+    color: #13A5DB;
+    font-size: 18px;
+}
+.jsIcon{
+    color:#FCD000;
+    font-size: 21px;
+}
+
+.codeContainerLight {
+    height: 100%;
+
+}
+
+.codeContainerDark {
+    height: 100%;
+}
+
+.codeMirror {
+    height: 100%;
+}
+
+.phProjectOutputBlock {
+    height:100%;
+    background-color: #0a0a0a;
+    overflow: scroll;
+    z-index: 1;
+}
+
+.phProjectOutputIframe {
+    overflow:scroll;
+    height: 100%;
+    width: 100%;
+}
