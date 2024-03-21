@@ -78,7 +78,7 @@ export default function PhoneProject({ isDarkMode, toggleTheme }) {
                 </div>
             </div>
             <div className={styles.divider}
-            style={{ backgroundColor: isDarkMode ? '#fff' : '#111219' }}></div>
+            style={{ backgroundColor: isDarkMode ? '#C1C1C1' : '#000' }}></div>
             <div className={styles.phProjectOutputBlock}
                 style={{ backgroundColor: isDarkMode ? '#fff' : '#111219' }}>
                 <iframe
