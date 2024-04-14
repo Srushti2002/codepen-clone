@@ -1,24 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react';
 
-const PREFIX = 'codepen-clone-'
+// Custom hook to store and retrieve data in localStorage
+const useLocalStorage = (key, initialValue) => {
+    // Retrieve stored value from localStorage, or use initialValue if not found
+    const storedValue = localStorage.getItem(key)
+        ? JSON.parse(localStorage.getItem(key))
+        : initialValue;
 
-export default function useLocalStorage(key, initialValue) {
-  const prefixedKey = PREFIX + key
+    // Create state to store the value
+    const [value, setValue] = useState(storedValue);
 
-  const [value, setValue] = useState(() => {
-    const jsonValue = localStorage.getItem(prefixedKey)
-    if (jsonValue != null) return JSON.parse(jsonValue)
+    // Update localStorage and state when value changes
+    const updateValue = (newValue) => {
+        setValue(newValue);
+        localStorage.setItem(key, JSON.stringify(newValue));
+    };
 
-    if (typeof initialValue === 'function') {
-      return initialValue()
-    } else {
-      return initialValue
-    }
-  })
+    return [value, updateValue];
+};
 
-  useEffect(() => {
-    localStorage.setItem(prefixedKey, JSON.stringify(value))
-  }, [prefixedKey, value])
-
-  return [value, setValue]
-}
+export default useLocalStorage;
